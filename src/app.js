@@ -14,8 +14,8 @@ const settings = (app) => {
 const setHeaders = (app) => {
   app.use((req, res, next) => {
     res.removeHeader('X-Powered-By') // Remove express signature
-    res.setHeader('application', process.env.APP_NAME) // Set application name
-    res.setHeader('Version', process.env.APP_VERSION) // Set application version
+    if (process.env.APP_NAME) res.setHeader('application', process.env.APP_NAME) // Set application name
+    if (process.env.APP_VERSION) res.setHeader('Version', process.env.APP_VERSION) // Set application version
     next()
   })
 }

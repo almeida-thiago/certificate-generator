@@ -1,6 +1,16 @@
 'use strict'
 
+const cryptoJS = require('crypto-js')
 const router = require('express').Router() // Load express router
+
+const generateCertificateLink = (router) =>
+  router.post('/require-certificate', async (req, res) => {
+    const hash = cryptoJS.AES.encrypt(JSON.stringify(req.body), 'certificate')
+    res.status(200).send({
+      success: true,
+      certificate: `${req.protocol}://${req.get('host')}/certificate?hash=${hash}`
+    })
+  })
 
 const generateCertificate = (router) =>
   router.get('/certificate', async (req, res) => {
@@ -15,6 +25,7 @@ const routerError = (router) =>
   })
 
 module.exports = [
+  generateCertificateLink(router),
   generateCertificate(router),
   routerError(router)
 ]
