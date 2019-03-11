@@ -2,23 +2,23 @@
 
 Easy generates certificates in PDF format.
 
-`POST /certificate - JSON`
+`POST /require-certificate - JSON`
 
-|Param              |Description|
-|:-------------------:|------------------------------------------------------|
-|`lang`               |Lang name (pt-br or en-us).                           |
-|`backgound`          |Backgroun image url.                                  |
-|`fontFamily`         |Font name.                                            |
-|`name`               |Paticipant name. `required`                           |
-|`institute`          |Institute name. `required`                            |
-|`event.title`        |Event title. `required`                               |
-|`event.titleGender`  |Title event gender (for pt-br). `required`            |
-|`event.hours`        |Total hours of event. `required`                      |
-|`event.date`         |Date of event. `required`                             |
-|`text`               |Custom certificate text, use \[NAME\] to replace name.|
-|`signers: []`        |Array of signers max of 3. `required`                 |
-|`signers.name`       |Signer name `required`                                |
-|`signers.description`|Signer description `required`                         |
+|Param                |Description                                              |
+|:-------------------:|---------------------------------------------------------|
+|`lang`               |Lang name (pt-br or en-us).                              |
+|`backgound`          |Backgroun image url.                                     |
+|`fontFamily`         |Font name.                                               |
+|`name`               |Paticipant name. `required`                              |
+|`institute`          |Institute name. `required`                               |
+|`event.title`        |Event title. `required`                                  |
+|`event.titleGender`  |Title event gender for automatic text (pt-br). `required`|
+|`event.hours`        |Total hours of event. `required`                         |
+|`event.date`         |Date of event. `required`                                |
+|`text`               |Custom certificate text, use \[NAME\] to replace name.   |
+|`signers: []`        |Array of signers max of 3. `required`                    |
+|`signers.name`       |Signer name `required`                                   |
+|`signers.description`|Signer description `required`                            |
 
 ### Response
 
